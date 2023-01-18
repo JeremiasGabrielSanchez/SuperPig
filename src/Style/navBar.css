@@ -1,0 +1,179 @@
+/* Base */
+.navBar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Logo */
+
+
+/* Navbar principal y sus elementos */
+.conjuntoElementos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0 30px;
+    background-color: #222;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); 
+    width: 95%;
+    height: 100px;
+}
+.conjunto{
+    display: flex;
+    align-items: center;
+}
+
+@media(max-width: 830px) {
+    .conjunto{
+        display: none;
+        position: initial;
+    }
+}
+@media(max-width: 830px) {
+    .conjunto a{
+        display: inline;
+        font-size: 1rem;
+        color: white;
+    }
+}
+
+/* Despliegue del boton hamburguesa */
+
+@media(min-width: 830px) {
+    .boton{
+        display: none;
+    }
+}
+
+.box.Activo{
+    display: block;
+    position: absolute;
+    text-align: center; 
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 140%;
+}
+.box.Activo a{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: white;
+}
+@media(min-width: 830px) {
+    .box.Activo{
+        display: none;
+    }
+}
+.box{
+    display: none;
+}
+
+/* Diseño de la caja */
+
+.initial{
+    top: -1000px;
+    right: -1000px;
+    position: absolute;
+}
+@media(max-width: 830px){
+    .initial.active{
+        background-color: #444;
+        border-radius: 2rem;
+        top: 125%;
+        right: 25%;
+        width: 50%;
+        height: 400%;
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+}
+
+
+/* Titulo */
+h2{
+    margin-left: 80px;
+    color: white;
+    font-style: normal;
+    position: relative;
+}
+    span{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .logo{
+        position: absolute;
+        width: 70px;
+    }
+
+    /* Diseño de letra de las categorias */
+.cateUsuario{
+    background-color: white;
+    display: flex;
+    border-radius: 5px;
+    color: #222;
+}
+.cateUsuario:hover{
+    background-color: rgb(63, 214, 156);
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    padding: 0.7rem 1rem;
+}
+
+/* Botones de las categorias */
+
+.categoria i{
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.categoria:hover{
+    background-color: rgb(253, 211, 95);
+    border-radius: 4px;
+}
+
+.usuario.Activo i{
+    align-items: center;
+    padding-right: 5px;
+}
+
+/* Botones de las categorias en la caja*/
+
+@media(max-width: 830px){
+    .categoria.Activo i{
+        padding-right: 5px;
+    }
+
+    .categoria.Activo:hover{
+        font-size: 2rem;
+        text-align: center;
+        margin-right: 35%;
+        margin-left: 35%;
+        background-color: rgb(248, 195, 47);
+        border-radius: 4px;
+    }
+
+    .usuario.Activo i{
+        padding-right: 5px;
+    }
+    .usuario.Activo:hover{
+        font-size: 2rem;
+        text-align: center;
+        margin-right: 35%;
+        margin-left: 35%;
+        background-color: rgb(63, 214, 156);
+        border-radius: 4px;
+    }
+}
+
+
+
+
