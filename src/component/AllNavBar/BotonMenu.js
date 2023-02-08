@@ -1,5 +1,5 @@
 import React from 'react'
-import "../Style/botonMenu.css"
+import "../../Style/botonMenu.css"
 
 function BotonMenu(props) {
   

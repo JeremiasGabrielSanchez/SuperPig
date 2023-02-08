@@ -1,0 +1,50 @@
+
+.cajaProducto{
+    display: block;
+    width: 30%;
+    height: 36rem;
+    margin: 1rem 1.5% 1rem ;
+    background-color: #5555557a;
+    float: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); 
+    border: .15rem solid black;
+    border-radius: 0.5rem;
+}
+
+.imageProducto{
+    display: block;
+    height: 45%;
+    margin: auto;
+    box-shadow: 0 5px 15px rgba(1, 1, 1, 0.3); 
+    border: 0.15rem solid;
+    border-radius: .5rem;
+}
+
+.tituloProducto{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    text-decoration: overline underline;
+}
+
+.detalleProducto{
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+    background-color: rgba(248, 108, 108, 0.795);
+    border-radius: 0.5rem;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(1, 1, 1, 0.3); 
+    margin: 1rem 7px 0 7px;
+}
+
+.priceProducto{
+    text-align: center;
+    text-decoration: overline underline;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+}
+
+
+
+.cajaProducto:hover{
+    background-color: rgb(228, 128, 128);
+    cursor: pointer;
+}
