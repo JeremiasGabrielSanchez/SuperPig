@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import { HStack } from '@chakra-ui/react'
 import ItemList from '../../Item/ItemList'
 import { customFetch } from '../Tool/customFetch'
@@ -11,13 +12,21 @@ function ItemListContainer() {
   const [listProduct, setListProduct] = useState ([])
   const [loading, setLoading] = useState(true)
 
+  const { category } = useParams()
+
   useEffect(()=>{
     setLoading(true)
     customFetch(products)
       .then(res =>{ 
-        setLoading(false)
-        setListProduct(res)})
-  }, [])
+        if(category){
+          setLoading(false)
+          setListProduct(res.filter(prod => prod.category === category))
+          }else{
+            setLoading(false)
+            setListProduct(res)
+          }
+        })
+  }, [category])
   
   return (
     <HStack bgImage={BgGrande}>

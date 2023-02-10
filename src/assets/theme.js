@@ -9,7 +9,7 @@ const breakpoints = {
   xl: '80em',
 }
 
-const theme = extendTheme({
+const Theme = extendTheme({
   semanticTokens: {
     colors: {
       text: {
@@ -36,4 +36,4 @@ const theme = extendTheme({
   breakpoints,
 })
 
-export default theme
+export default Theme

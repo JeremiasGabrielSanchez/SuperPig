@@ -22,7 +22,7 @@ export const products = [
         image: "https://www.thepaperstore.com/mm5/graphics/00000001/001956/001956_1000509259_NoColor.jpg",
         product: "Cartas Uno",
         category: "familiar",
-        description: "Ideal para los tiempos de cuarentena, porque permite jugar a grandes y chicos con una habilidad muy pareja, el UNO es uno de los juegos de naipes más populares de la historia, y eso que su historia apenas tiene 49 años.",
+        description: "Ideal para los tiempos de cuarentena, porque permite jugar a grandes y chicos con una habilidad muy pareja.",
         price: 300,
         stock: 250
     },
