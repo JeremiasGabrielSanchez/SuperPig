@@ -3,8 +3,8 @@ import { extendTheme } from '@chakra-ui/react'
 const fonts = { mono: `'Menlo', monospace` }
 
 const breakpoints = {
-  sm: '42em',
-  md: '57em',
+  sm: '67em',
+  md: '70em',
   lg: '64em',
   xl: '80em',
 }
