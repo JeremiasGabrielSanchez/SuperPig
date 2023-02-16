@@ -17,9 +17,9 @@ function NavBar() {
   return (
       <HStack bg="#222" padding="1rem" border="4px" borderColor="black" > 
           <Heading color="white" ml="0.7rem">
-            <NavLink to="/"> Super PIG </NavLink>
+            <NavLink to="/home"> Super PIG </NavLink>
           </Heading>
-          <NavLink to="/">
+          <NavLink to="/home">
             <img src={Logo} alt="Cerdito" width={"70px"} />
           </NavLink>
           
@@ -130,7 +130,7 @@ function NavBar() {
                     <Heading color="white" m="0 0.7rem 0 40%" fontSize="2.5rem">
                       <NavLink> Super PIG </NavLink>
                     </Heading>
-                    <NavLink to="/">
+                    <NavLink to="/home">
                     <img src={Logo} alt="Cerdito" width={"90px"} /> 
                     </NavLink>
 

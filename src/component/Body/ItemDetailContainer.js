@@ -4,6 +4,10 @@ import { Box } from '@chakra-ui/react';
 import { products } from '../../assets/products';
 import { customFetch } from '../Tool/customFetch';
 import ItemDetail from '../../Item/ItemDetail';
+
+import {db} from '../Tool/firebase'
+import { collection, getDoc, getDocs } from 'firebase/firestore'
+
 import Comics from "../../assets/comic.png"
 import Figuras from "../../assets/figuras.png"
 import Mangas from "../../assets/manga.png"
@@ -17,25 +21,61 @@ function ItemDetailContainer() {
 
   const {id, category} = useParams()
 
-  useEffect(() => {
-    customFetch(products)
-      .then(res =>{
-        setLoading(false)
-        setListProduct(res.find(item => item.id === parseInt(id)))
-        if(category === "comics"){
-          setBackGraund(Comics)
-        }else if (category === "figuras"){
-          setBackGraund(Figuras)
-        }
-        else if (category === "mangas"){
-          setBackGraund(Mangas)
-        }else{
-          setBackGraund(Juguetes)
+  // useEffect(() => {
+  //   customFetch(products)
+  //     .then(res =>{
+  //       setLoading(false)
+  //       setListProduct(res.find(item => item.id === parseInt(id)))
+  //       if(category === "comics"){
+  //         setBackGraund(Comics)
+  //       }else if (category === "figuras"){
+  //         setBackGraund(Figuras)
+  //       }
+  //       else if (category === "mangas"){
+  //         setBackGraund(Mangas)
+  //       }else{
+  //         setBackGraund(Juguetes)
+  //       }
+  //     })
+  //   }, [id, category])
+    
+  useEffect(()=>{
+
+    const mercancia = collection(db, "productos")
+
+    const consulta = getDocs(mercancia)
+
+    consulta
+    .then( res =>{
+
+      const stock = res.docs.map(doc => {
+        return{
+          ...doc.data(),
+          id: doc.id
         }
       })
-    }, [id, category])
-    
-    
+
+        setLoading(false)
+        setListProduct(stock.find(item => item.id === id))
+        
+        const categoria = stock.find(item => item.id === id)
+        
+        if(categoria.category === "comics"){
+          setBackGraund(Comics)
+          }else if (categoria.category === "figuras"){
+            setBackGraund(Figuras)
+          }
+          else if (categoria.category === "mangas"){
+            setBackGraund(Mangas)
+          }else{
+            setBackGraund(Juguetes)
+          }
+                
+
+    }) //fin del then
+    .catch(err => (console.log(err)))
+
+  }, [id, category])
 
     return (
       <Box bgImage={prop => backGraund}>
