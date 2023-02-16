@@ -4,13 +4,13 @@ import NavBar from "./component/AllNavBar/NavBar";
 import ItemListContainer from "./component/Body/ItemListContainer";
 import ItemDetailContainer from "./component/Body/ItemDetailContainer";
 import ScreenInitial from "./component/Body/ScreenInitial";
-import Theme from "./assets/Theme";
+import theme from "./assets/theme";
 import './component/Tool/firebase';
 
 function App() {
   return (
 
-    <ChakraProvider theme={Theme}>
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
         <NavBar/>
         <Routes>
