@@ -2,11 +2,9 @@ import { React, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { HStack } from '@chakra-ui/react'
 import ItemList from '../../Item/ItemList'
-import { customFetch } from '../Tool/customFetch'
-import { products } from '../../assets/products'
 
 import {db} from '../Tool/firebase'
-import { collection, getDoc, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 
 import BgGrande from "../../assets/bg-body.png"
 import Comics from "../../assets/comic.png"

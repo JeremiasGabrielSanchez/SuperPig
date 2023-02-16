@@ -1,12 +1,10 @@
 import {React, useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
-import { products } from '../../assets/products';
-import { customFetch } from '../Tool/customFetch';
 import ItemDetail from '../../Item/ItemDetail';
 
 import {db} from '../Tool/firebase'
-import { collection, getDoc, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 
 import Comics from "../../assets/comic.png"
 import Figuras from "../../assets/figuras.png"
@@ -57,7 +55,7 @@ function ItemDetailContainer() {
 
         setLoading(false)
         setListProduct(stock.find(item => item.id === id))
-        
+
         const categoria = stock.find(item => item.id === id)
         
         if(categoria.category === "comics"){
