@@ -72,25 +72,4 @@ function ItemListContainer() {
     </HStack>
   )
 }
-// customFetch(products)
-// .then(res =>{ 
-//   if(category){
-//     setLoading(false)
-//     setListProduct(res.filter(prod => prod.category === category))
-//       if(category === "comics"){
-//         setBackGraund(Comics)
-//       }else if (category === "figuras"){
-//         setBackGraund(Figuras)
-//       }
-//       else if (category === "mangas"){
-//         setBackGraund(Mangas)
-//       }else{
-//         setBackGraund(Juguetes)
-//       }
-//   }else{
-//     setBackGraund(BgGrande)
-//     setLoading(false)
-//     setListProduct(res)
-//     }
-//   })
 export default ItemListContainer

@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex, Grid, GridItem, Text, Heading, Button, Link } from '@chakra-ui/react'
 import CartWidget from '../component/AllNavBar/CartWidget';
 import { FaInstagram, FaGithub, FaFacebookSquare } from "react-icons/fa";
+import ItemCount from '../component/Tool/ItemCount';
 
 function ItemDetail({listProduct}) {
 
@@ -25,13 +26,13 @@ function ItemDetail({listProduct}) {
         fontWeight='bold'
         m="2.5% auto 0 auto"
         >
-          <GridItem p='4' bg='#aaa8a8f8' area={'header'} display="flex" alignItems="center" justifyContent="center" borderBottom="2px">
+          <GridItem p='1rem' bg='#aaa8a8f8' area={'header'} display="flex" alignItems="center" justifyContent="center" borderBottom="2px">
             <Heading fontSize="3.5rem">
               {listProduct.product} 
             </Heading> 
           </GridItem>
         
-          <GridItem p='2' bg='#c7c6c6f8' area={'nav'} display="flex" alignItems="center" justifyContent="center" > 
+          <GridItem p='0.3rem' bg='#c7c6c6f8' area={'nav'} display="flex" alignItems="center" justifyContent="center" > 
             <img src={listProduct.image} alt="" w="80%"/>
           </GridItem>
         
@@ -42,16 +43,19 @@ function ItemDetail({listProduct}) {
                 {listProduct.info} 
               </Text>
             </Heading>
-            <Flex justifyContent="flex-end" alignItems="center" m="3rem 5% 2rem">
-              <Heading m="1rem" fontSize="2rem" >
-                ${listProduct.price}
-              </Heading>
-              <Button bgColor="#aaa8a8f8" color="white" border="2px" borderColor="yellow.400" 
+
+            <Flex flexDir="column" alignItems="flex-end" m="1.2rem 5% 2rem">
+              <Flex mb="1rem">
+                <ItemCount stock={listProduct.stock} onAdd={()=>{}}/>
+              </Flex>
+  
+                <Button bgColor="#aaa8a8f8" color="white" border="2px" borderColor="yellow.400" width="13rem"
                 _hover={{color:"#535353", bgColor:"#c7c6c6f8", borderColor:"yellow.200"}}> 
                   <CartWidget/> 
-              </Button>
+                </Button>
             </Flex>
-            <Flex justifyContent="center" mt="3rem" mb="1rem">
+
+            <Flex justifyContent="center" mt="2rem" mb="1rem">
               <Button fontSize="1.5rem" p="1.7rem" width="90%" bgColor="#aaa8a8f8" color="white" border="2px" borderColor="yellow.400" textShadow='1px 1px #000' 
                 _hover={{color:"#535353", bgColor:"#c7c6c6f8", borderColor:"yellow.200"}}> 
                 Ir a comentarios 

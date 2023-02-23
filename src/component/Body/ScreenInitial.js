@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { Heading, Text, Flex, VStack, Input } from '@chakra-ui/react'
-import BgGraund from '../../assets/bg-principal1.png'
+import BgGraund from '../../assets/bg-principal2.png'
 
 function ScreenInitial() {
   return (

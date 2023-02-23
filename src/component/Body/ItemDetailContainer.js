@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import ItemDetail from '../../Item/ItemDetail';
 
+
 import {db} from '../Tool/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 
@@ -17,25 +18,9 @@ function ItemDetailContainer() {
   const [loading, setLoading] = useState(true)
   const [backGraund, setBackGraund] = useState() 
 
-  const {id, category} = useParams()
+  const {id} = useParams()
 
-  // useEffect(() => {
-  //   customFetch(products)
-  //     .then(res =>{
-  //       setLoading(false)
-  //       setListProduct(res.find(item => item.id === parseInt(id)))
-  //       if(category === "comics"){
-  //         setBackGraund(Comics)
-  //       }else if (category === "figuras"){
-  //         setBackGraund(Figuras)
-  //       }
-  //       else if (category === "mangas"){
-  //         setBackGraund(Mangas)
-  //       }else{
-  //         setBackGraund(Juguetes)
-  //       }
-  //     })
-  //   }, [id, category])
+
     
   useEffect(()=>{
 
@@ -73,11 +58,17 @@ function ItemDetailContainer() {
     }) //fin del then
     .catch(err => (console.log(err)))
 
-  }, [id, category])
+  }, [id])
 
     return (
       <Box bgImage={prop => backGraund}>
-        {!loading ? <ItemDetail listProduct={listProduct}/> : <h1> Cargando...</h1>}
+        {
+        !loading ?
+          <>
+            <ItemDetail listProduct={listProduct}/> 
+          </>
+        : 
+          <h1> Cargando...</h1>}
       </Box>
   )
 }
