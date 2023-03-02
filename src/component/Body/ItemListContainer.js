@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { HStack } from '@chakra-ui/react'
-import ItemList from '../../Item/ItemList'
+import ItemList from '../Item/ItemList'
 
 import {db} from '../Tool/firebase'
 import { collection, getDocs } from 'firebase/firestore'
@@ -63,7 +63,7 @@ function ItemListContainer() {
   }, [category])
   
   return (
-    <HStack bgImage={prop => backGraund}>
+    <HStack bgImage={prop => backGraund} bgRepeat='repeat'>
       {!loading 
       ? 
       <ItemList listProduct={listProduct}/>

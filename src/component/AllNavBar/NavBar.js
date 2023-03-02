@@ -91,7 +91,9 @@ function NavBar() {
                     _hover={{fontSize:'1.1rem', textShadow:'1px 1px #000000d7'}}
                     > 
                       <CartWidget/>
-                      <Text ml="5px"> Carrito </Text> 
+                      <NavLink to='/cart'>
+                        <Text ml="5px"> Carrito </Text> 
+                      </NavLink>
                     </Link>
                   </NavLink>
                 </Flex>
@@ -168,7 +170,7 @@ function NavBar() {
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}
                     > 
                       <GiBatMask/>
-                      <Text ml="5px"> Comics </Text> 
+                      <Text ml="5px" onClick={()=>changeDisplay('none')}> Comics </Text> 
                     </Link>
                   </NavLink>
 
@@ -177,7 +179,7 @@ function NavBar() {
                     color="white" mb="1rem" bgColor="#99999957" padding="6px" border="2px" borderRadius="5px"
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}> 
                       <GiAura/>
-                      <Text ml="5px"> Figuras </Text> 
+                      <Text ml="5px" onClick={()=>changeDisplay('none')}> Figuras </Text> 
                     </Link>
                   </NavLink>
 
@@ -186,7 +188,7 @@ function NavBar() {
                     color="white" mb="1rem" bgColor="#99999957" padding="6px" border="2px" borderRadius="5px"
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}> 
                       <GiAmbulance/>
-                      <Text ml="5px"> Juguetes </Text> 
+                      <Text ml="5px" onClick={()=>changeDisplay('none')}> Juguetes </Text> 
                     </Link>
                   </NavLink>
 
@@ -195,7 +197,7 @@ function NavBar() {
                     color="white" mb="1rem" bgColor="#99999957" padding="6px" border="2px" borderRadius="5px"
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}> 
                       <FaBook/>
-                      <Text ml="5px"> Mangas </Text> 
+                      <Text ml="5px" onClick={()=>changeDisplay('none')}> Mangas </Text> 
                     </Link>
                   </NavLink>
 
@@ -204,7 +206,9 @@ function NavBar() {
                     color="white" mb="1rem" bgColor="#99999957" padding="6px" border="2px" borderRadius="5px"
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}> 
                       <CartWidget/>
-                      <Text ml="5px"> Carrito </Text> 
+                      <NavLink to='/cart'>
+                        <Text ml="5px" onClick={()=>changeDisplay('none')}> Carrito </Text> 
+                      </NavLink>
                     </Link>
                   </NavLink>
 
@@ -213,7 +217,7 @@ function NavBar() {
                     color="white" mb="1rem" bgColor="#99999957" padding="6px" border="2px" borderRadius="5px"
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}> 
                       <FaRegUser/>
-                      <Text ml="5px"> Usuario </Text> 
+                      <Text ml="5px" onClick={()=>changeDisplay('none')}> Usuario </Text> 
                     </Link>
                   </NavLink>
                 </Flex>

@@ -4,22 +4,27 @@ import NavBar from "./component/AllNavBar/NavBar";
 import ItemListContainer from "./component/Body/ItemListContainer";
 import ItemDetailContainer from "./component/Body/ItemDetailContainer";
 import ScreenInitial from "./component/Body/ScreenInitial";
+import Cart from "./component/Body/CartView";
 import theme from "./assets/theme";
-import './component/Tool/firebase';
+import CartContextProvider from "./context/CartContext";
 
 function App() {
   return (
 
     <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path="/" element={<ScreenInitial/>}/>
-          <Route path="/home" element={<ItemListContainer/>}/>
-          <Route path="/category/:category" element={<ItemListContainer/>}/>
-          <Route path="/home/product/:id" element={<ItemDetailContainer/>}/>
-        </Routes>
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar/>
+          <Routes>
+            <Route path="/" element={<ScreenInitial/>}/>
+            <Route path="/home" element={<ItemListContainer/>}/>
+            <Route path="/category/:category" element={<ItemListContainer/>}/>
+            <Route path="/category/:category/:id" element={<ItemDetailContainer/>}/>
+            <Route path="/home/:id" element={<ItemDetailContainer/>}/>
+            <Route path="/cart" element={<Cart/>}/>
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
     </ChakraProvider>
   );
 }
