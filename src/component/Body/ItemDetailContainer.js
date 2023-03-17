@@ -7,6 +7,7 @@ import ItemDetail from '../Item/ItemDetail';
 import {db} from '../Tool/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 
+import { Spinner } from '@chakra-ui/react'
 import Comics from "../../assets/comic.png"
 import Figuras from "../../assets/figuras.png"
 import Mangas from "../../assets/manga.png"
@@ -68,7 +69,16 @@ function ItemDetailContainer() {
             <ItemDetail listProduct={listProduct}/> 
           </>
         : 
-          <h1> Cargando...</h1>}
+        <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
+        ml='49%'
+        mt='17%'
+        />
+      }
       </Box>
   )
 }

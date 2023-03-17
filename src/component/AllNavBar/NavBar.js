@@ -77,7 +77,7 @@ function NavBar() {
                 </NavLink>
                 
                 <Flex flexDir="column" bgColor={"#444"} padding="7px" border="2px" borderColor="yellow.500" borderRadius="5px" >
-                  <NavLink to="category/usuario">
+                  <NavLink to="/user">
                     <Link display="flex" alignItems="center" textDecoration={"none"} color="white" fontSize={"1rem"} ml="3px"
                     _hover={{fontSize:'1.1rem', textShadow:'1px 1px #000000d7'}}
                     > 
@@ -212,7 +212,7 @@ function NavBar() {
                     </Link>
                   </NavLink>
 
-                  <NavLink to="categoy/usuario">
+                  <NavLink to="/">
                     <Link display="flex" alignItems="center"
                     color="white" mb="1rem" bgColor="#99999957" padding="6px" border="2px" borderRadius="5px"
                     _hover={{fontSize:'2.2rem', shadow:'5px 5px 5px #cacacab2'}}> 

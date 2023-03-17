@@ -6,6 +6,7 @@ import ItemList from '../Item/ItemList'
 import {db} from '../Tool/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 
+import { Spinner } from '@chakra-ui/react'
 import BgGrande from "../../assets/bg-body.png"
 import Comics from "../../assets/comic.png"
 import Figuras from "../../assets/figuras.png"
@@ -68,7 +69,16 @@ function ItemListContainer() {
       ? 
       <ItemList listProduct={listProduct}/>
       : 
-      <h1>Cargando</h1>}
+      <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
+        ml='49%'
+        mt='17%'
+        mb='20rem'
+      />}
     </HStack>
   )
 }

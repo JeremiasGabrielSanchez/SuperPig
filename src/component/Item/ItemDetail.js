@@ -9,7 +9,7 @@ function ItemDetail({listProduct}) {
 
   const [isAdded, setIsAdded] = useState(false)
 
-  const { addToCart} = useCartContext()
+  const { addToCart } = useCartContext()
 
   const onAdd = (quantity) => {
     addToCart(listProduct, quantity)
@@ -56,21 +56,22 @@ function ItemDetail({listProduct}) {
 
             <Flex flexDir="column" alignItems="flex-end" m="1.2rem 5% 2rem">
               <Flex mb="1rem">
-                
+
               {isAdded 
                   ? 
                   <>
-                  <NavLink to='/cart'>
-
-                    <Button position='absolute' bgColor="#aaa8a8f8" color="white" border="2px" borderColor="yellow.400" width="6rem" ml='1rem'
-                    _hover={{color:"#535353", bgColor:"#c7c6c6f8", borderColor:"yellow.200"}} mt='4.26rem'> 
-                      Ir al carrito
-                    </Button> 
+                    <NavLink to='/cart'>
+                      <Button position='absolute' bgColor="#aaa8a8f8" color="white" border="2px" borderColor="yellow.400" width="6rem" ml='1rem'
+                      _hover={{color:"#535353", bgColor:"#c7c6c6f8", borderColor:"yellow.200"}} mt='4.26rem'> 
+                        Ir al carrito
+                      </Button> 
                     </NavLink>
-                    <ItemCount stock={listProduct.stock} precio={listProduct.price} onAdd={onAdd}/> 
+                    <ItemCount stock={listProduct} precio={listProduct.price} onAdd={onAdd}/> 
                   </> 
                   : 
-                  <ItemCount stock={listProduct.stock} precio={listProduct.price} onAdd={onAdd}/>
+                  <>
+                  <ItemCount stock={listProduct} precio={listProduct.price} onAdd={onAdd}/>
+                  </>
                 }
               </Flex>
   
@@ -147,18 +148,13 @@ function ItemDetail({listProduct}) {
                         Ir al carrito
                       </Button> 
                     </NavLink>
-                    <ItemCount stock={listProduct.stock} precio={listProduct.price} onAdd={onAdd}/> 
+                    <ItemCount stock={listProduct} precio={listProduct.price} onAdd={onAdd}/> 
                   </> 
                   : 
-                  <ItemCount stock={listProduct.stock} precio={listProduct.price} onAdd={onAdd}/>
+                  <ItemCount stock={listProduct} precio={listProduct.price} onAdd={onAdd}/>
                 }
                 
               </Flex>
-  
-                {/* <Button bgColor="#aaa8a8f8" color="white" border="2px" borderColor="yellow.400" width="13rem"
-                _hover={{color:"#535353", bgColor:"#c7c6c6f8", borderColor:"yellow.200"}}> 
-                  <CartWidget/> 
-                </Button> */}
 
             </Flex>
 
