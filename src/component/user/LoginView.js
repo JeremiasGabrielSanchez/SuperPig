@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "../../context/authContext"
-import { Grid, GridItem, VStack, Text, Button, Image, Flex, Spacer } from "@chakra-ui/react"
+import { Grid, GridItem, VStack, Text, Button, Image, Flex } from "@chakra-ui/react"
 import {db} from '../Tool/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 import { Spinner } from '@chakra-ui/react'
@@ -23,20 +23,14 @@ function LoginView() {
 
     consulta
     .then( res =>{
-
       const clientes = res.docs.map(doc => {
-        return{
-          ...doc.data(),
-          id: doc.id
-        }
+        return {...doc.data()}
       })
       setClient(clientes.find( clie => clie.email === user.email))
       setLoading(false)
-      console.log(clientes.find( clie => clie.email === user.email))
     }) //fin del then
     .catch(err => (console.log(err)))
-
-  }, [])
+  }, [user.email])
   console.log(cliente.id)
   return (
     <> 

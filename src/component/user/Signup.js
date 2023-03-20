@@ -18,7 +18,7 @@ export const Registrarse = () => {
   
   const [display, changeDisplay] = useState('none')
   const [show, setShow] = useState(false)
-  const [perfil, setPerfil] = useState()
+  const [perfil, setPerfil] = useState('')
   const [error, setError] = useState()
 
   const { signup } = useAuth()
@@ -37,18 +37,19 @@ export const Registrarse = () => {
     onceFoto,
     doceFoto} = useImageContext()
 
-  const handleChange = ({target: {name, value}}) =>    //Tomo los valores importantes del usuario con un OnChange
-    setUser({...user, [name]: value})
+  const handleChange = ({target: {name, value}}) => setUser({...user, [name]: value})
+
+  // console.log(user)
   
   const registerUser = async(email, password, nombre, apellido, pais, telefono, postal, calle, perfil) =>{  //Con este metodo creo el registro del usuario
     const infoUser = await signup(email, password).then((userFirebase) => {
       return userFirebase
     })
-    console.log(infoUser.user.uid)
+    
 
     const docRef = doc(db,`usuarios/${infoUser.user.uid}`)    // Y aquí lo almaceno en firestore
     setDoc(docRef, {
-      email: user.email, 
+      email: email, 
       name: nombre,
       lastName: apellido,
       country: pais,
@@ -57,13 +58,16 @@ export const Registrarse = () => {
       street: calle,
       nroFoto: perfil
     })
-  }
+    }
+
 
     const fotoPerfil = async(e) => { //Logica imagen Perfil
       e.preventDefault()
       const imgPerfil= e.target.value;
       setPerfil(imgPerfil)
     }
+
+    console.log(perfil)
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
@@ -80,7 +84,7 @@ export const Registrarse = () => {
       const postal = e.target.postal.value;
       const calle = e.target.calle.value;
     
-      await registerUser(email, password, nombre, apellido, pais, telefono, postal, calle) 
+      await registerUser(email, password, nombre, apellido, pais, telefono, postal, calle, perfil) 
       console.log(email, password, nombre, apellido, pais, telefono, postal, calle)
 
       navigate('/home')
@@ -93,6 +97,8 @@ export const Registrarse = () => {
         setError('Correo Invalido')
       }else if(error.code === 'auth/weak-password'){
         setError('La contraseña debe tener 6 caracteres como minimo')
+      }else if(error.code==='auth/email-already-in-use'){
+        setError('Correo en uso')
       }
     }
   }
