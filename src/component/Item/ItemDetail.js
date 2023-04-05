@@ -56,8 +56,7 @@ function ItemDetail({listProduct}) {
 
             <Flex flexDir="column" alignItems="flex-end" m="1.2rem 5% 2rem">
               <Flex mb="1rem">
-
-              {isAdded 
+                {isAdded 
                   ? 
                   <>
                     <NavLink to='/cart'>
@@ -70,11 +69,10 @@ function ItemDetail({listProduct}) {
                   </> 
                   : 
                   <>
-                  <ItemCount stock={listProduct} precio={listProduct.price} onAdd={onAdd}/>
+                    <ItemCount stock={listProduct} precio={listProduct.price} onAdd={onAdd}/>
                   </>
                 }
               </Flex>
-  
             </Flex>
 
             <Flex justifyContent="center" mt="2rem" mb="1rem">

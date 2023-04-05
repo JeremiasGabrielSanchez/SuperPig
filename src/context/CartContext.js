@@ -1,5 +1,5 @@
 import { createContext, useContext, useState} from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../component/Tool/firebase'
 
 const CartContext = createContext([])
@@ -28,21 +28,21 @@ function CartContextProvider( {children} ) {
   }
 
   const addToUser = (item, cant, user) =>{ 
-
-    const newOrden = {...item, quantity: cant, email:user.email, priceTotal: cant*item.price}
+    
+    const myDate = serverTimestamp()
+    const newOrden = {...item, quantity: cant, email:user.email, priceTotal: cant*item.price, fecha: myDate}
     setUserList(newOrden)
   }
 
-  
   const addToUserOfCart = ( product, cantidad, precio, usuario) =>{
-
-    const newUser = {...product, totalPrice: cantidad*precio, email: usuario.email}
-    setUserList(newUser)
+    const myDate = serverTimestamp()
+    const newOrden = {...product, priceTotal: cantidad*precio, email: usuario.email, fecha: myDate}
+    setUserList(newOrden)
   }
 
-  const confirmarCompra = ()=>{
+  const confirmarCompra = () =>{
     const ordersCollection = collection(db, "orders")
-      addDoc(ordersCollection, userList)
+    addDoc(ordersCollection, userList)
   }
 
   console.log(userList)

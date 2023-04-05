@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../component/Tool/firebase";
+import { db, auth } from "../component/Tool/firebase";
+import { deleteDoc, doc } from "firebase/firestore";
 
 const authContext = createContext();
 
@@ -21,6 +22,8 @@ function AuthProvider({children}) {
 
   const logout = () => signOut(auth) //cerrar sesion 
 
+  const eliminar = async(id) => {await deleteDoc(doc(db, 'orders', id ))}
+
   useEffect(() =>{
     const unsubscribe = onAuthStateChanged(auth, currenUser=>{
       //console.log(currenUser) //Informacion del usuario
@@ -32,7 +35,7 @@ function AuthProvider({children}) {
   
 
   return (
-    <authContext.Provider value={{signup, login, user, logout, loading}}>
+    <authContext.Provider value={{signup, login, user, logout, loading, eliminar}}>
       {children}
       </authContext.Provider>
   )
